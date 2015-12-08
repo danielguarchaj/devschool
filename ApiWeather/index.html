@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/appiweather.css">
+    <script src="scripts/jquery-1.11.3.js"></script>
+    <script src="scripts/myscript.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <h1>Weather</h1>
+    <form>
+      <div class="form-group">
+        <label>City Name</label>
+        <input type="text" class="form-control" id="city" placeholder="Type city name">
+      </div>
+      <div>
+      <label>Days Forecast</label><br>
+      <input type="radio" name="16days" value="16">16 Days<br>
+      <input type="radio" name="5days" value="5">5 Days<br>
+      <input type="radio" name="1day" val ue="1">1 Day<br>
+      <button type="button" id = "forecast" class="btn btn-default">Get Weather</button>
+      </div>
+    </form>
+
+    <table style="width:100%" border="2px" padding="3px">
+      <tr>
+        <td>Day<span id="dayNo"></span></td>
+        <td>City<span id="cityName"></span></td>
+        <td>Temp Low<span id="tmepLow"></span></td>
+        <td>Temp High<span id="tempHigh"></span></td>
+        <td>Wind Speed<span id="windSpeed"></span></td>
+      </tr>
+    </table>
+
+    </div>
+  </body>
+</html>
