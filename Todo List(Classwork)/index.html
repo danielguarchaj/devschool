@@ -1,0 +1,43 @@
+  <html>
+  <head>
+    <title>TODO List</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/example.css">
+    <script src="scripts/jquery-1.11.3.js"></script>
+    <script src="scripts/myscript.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <form id="addItems">
+      <h1>My TODO List</h1>
+
+      <div class="form-group">
+        <label for="task">Add New Task ToDo</label>
+        <input type="text" class="form-control" id="task" placeholder="New Task">
+      </div>
+      <button id("addTask") class="btn btn-default">Add Task</button>
+    </form>
+
+    <form id="removeItems">
+      <div class="form-group">
+        <label for="taskToRemove">Remove a Task From the List</label>
+        <input type="text" class="form-control" id="taskToRemove" placeholder="Task's Index To Remove">
+      </div>
+      <button id="removeTask" class="btn btn-default">Remove Task</button>
+    </form>
+
+    <form id="markAsDone">
+      <div class="form-group">
+        <label for="taskToFinish">Mark An Task As Done</label>
+        <input type="text" class="form-control" id="taskToFinish" placeholder="Task's Index To Mark As Done">
+      </div>
+      <button id="taskFinished" class="btn btn-default">Finish Task</button>
+    </form>
+
+    <h4>Tasks Added: Total(<span id="taskcounter"></span>)</h4>
+    <h4 id="removedAlert">Task Removed: <span id="taskRemoved"></span></h4>
+    <h4 id="finishedAlert">Task Finished: <span id="taskFinished"></span></h4>
+    <ol class="mytasks"></ol>
+  </div>
+  </body>
+</html>
