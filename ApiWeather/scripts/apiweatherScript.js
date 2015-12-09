@@ -21,6 +21,9 @@ var currentDayWeather = function(city){
 
 var dayWeather = function(weather){
 
-  
+  if(weather==="Rain") return "Images/rain.png"
+  else if(weather==="Clear") return "Images/sun.jpg"
+  else if(weather==="Cloud") return "Images/cloud.jpeg"
+  else if(weather==="Snow") return "Images/snow.jpg"
 
 }
