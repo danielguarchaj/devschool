@@ -21,8 +21,8 @@ $(document).ready(function(){
         $("span#forecastDays").text("Five Days / daily forecast data");
         $("ol.myCity").empty();
         $.get(apiUrl + city + "&cnt=5&APPID=" + apiKey, function(data){
-          for(var i=0; i<5; i++){
           console.log(data)
+          for(var i=0; i<5; i++){
           var tempMin = toCelcius(data.list[i].temp.min);
           var tempMax = toCelcius(data.list[i].temp.max);
           $("ol.myCity").append("<li>"+city + " - Temp Min: "+tempMin+" 0C to Max "+tempMax+" 0C - Wind Speed "+data.list[i].speed+" m/s <img src="+dayWeather(data.list[i].weather[0].main)+"></img></li>");
@@ -32,8 +32,8 @@ $(document).ready(function(){
         $("span#forecastDays").text("Sixteen Days / daily forecast data");
         $("ol.myCity").empty();
         $.get(apiUrl + city + "&cnt=16&APPID=" + apiKey, function(data){
-          for(var i=0; i<16; i++){
           console.log(data)
+          for(var i=0; i<16; i++){
           var tempMin = toCelcius(data.list[i].temp.min);
           var tempMax = toCelcius(data.list[i].temp.max);
           $("ol.myCity").append("<li>"+city + " - Temp Min: "+tempMin+" 0C to Max "+tempMax+" 0C - Wind Speed "+data.list[i].speed+" m/s <img src="+dayWeather(data.list[i].weather[0].main)+"></img></li>");
