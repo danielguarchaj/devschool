@@ -19,23 +19,11 @@
         <label>City Name</label>
         <input type="text" class="form-control" id="city" placeholder="Type city name">
           <button type="button" id = "forecast" class="btn btn-default">Get Weather</button>
+          <button type="button" id = "reset" class="btn btn-default">Reset</button>
       </div>
-
-
-
-
     </form>
-
-
-      <ol>
-        <li>Day: <span id="dayNo"> </span>
-        City: <span id="cityName"> </span>
-        Temp Low: <span id="tempLow"> </span>
-        To High: <span id="tempHigh"> </span>
-        Wind Speed: <span id="windSpeed"> </span></li>
-      </ol>
-
-
+      <h3 id="daysForecast">Days Forecast: <span id="forecastDays"></span></h3>
+      <ol class = "myCity"></ol>
     </div>
   </body>
 </html>
