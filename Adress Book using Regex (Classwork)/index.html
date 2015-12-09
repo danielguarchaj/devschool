@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Adress Book</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/adressBookStyle.css">
+  <script src="scripts/jquery-1.11.3.js"></script>
+  <script src="lib/adressBookScript.js"></script>
+  <script src="scripts/adressBookInterface.js"></script>
+</head>
+
+<div class="container">
+<form id="addContact">
+  <h1>Adress Book</h1>
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input type="text" class="form-control" id="inputName" placeholder="First Name"><br>
+    <input type="text" class="form-control" id=" inputMiddleInitial" placeholder="Middle Initial"><br>
+    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name"><br>
+  </div>
+  <div class="form-inLine">
+    <label for="inputPersonalEmail">Personal e-mail</label>
+    <input type="text" class="form-control" id="inputPersonalEmail" placeholder="e-mail@example.com">
+    <label for="inputBusinessEmail">Business e-mail</label>
+    <input type="text" class="form-control" id=" inputMiddleInitial" placeholder="e-mail@example.com">
+  </div><br>
+  <div class="form-inLine">
+    <label for="inputMobile">Mobile</label>
+    <input type="text" class="form-control" id="inputMobile" placeholder="Personal Phone">
+    <label for="inputHome">Home</label>
+    <input type="text" class="form-control" id="inputHome" placeholder="Home Phone">
+    <label for="inputWork">Business</label>
+    <input type="text" class="form-control" id="inputWork" placeholder="Business Phone">
+  </div><br>
+  <div class="form-group">
+    <label for="inputStreetAdress">Adress</label>
+    <input type="text" class="form-control" id="inputStreetAdress" placeholder="Street Adress"><br>
+    <input type="text" class="form-control" id="inputUnitNumber" placeholder="Unit Number"><br>
+    <input type="text" class="form-control" id="inputCity" placeholder="City"><br>
+    <input type="text" class="form-control" id="inputCountry" placeholder="Country"><br>
+    <input type="text" class="form-control" id="inputZip" placeholder="Zip Code"><br>
+    <input type="text" class="form-control" id="inputComment" placeholder="Write a comment"><br>
+  </div>
+  <button type="button" class="btn btn-primary" id="buttonSubmit">Add Contact</button>
+  <button type="button" class="btn btn-danger" id="buttonDelete">Delete Contact</button>
+  <button type="button" class="btn btn-warning" id="buttonEdit">Edit Contact</button>
+</form>
+<h3>My Contact List:</h3>
+<ol class="mytasks"></ol>
+</div>
+
+</body>
+</html>
