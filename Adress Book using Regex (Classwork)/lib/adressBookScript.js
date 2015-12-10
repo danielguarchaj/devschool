@@ -150,7 +150,7 @@ var validatePhone = function (number){
   }
 
   var addContact = function(newContact){
-    contact = myContacts.push(newContact);    
+    contact = myContacts.push(newContact);
   }
 
   var deleteContact = function(contactIndex){
@@ -161,7 +161,7 @@ var validatePhone = function (number){
   }
 
   var updateContact = function(contactIndex){
-
+    
 
   }
 
