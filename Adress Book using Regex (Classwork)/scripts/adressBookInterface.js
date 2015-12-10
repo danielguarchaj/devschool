@@ -83,11 +83,49 @@ $(document).ready(function(){
     }
   })
 
-  $("button#buttonSubmit").on("click",function(event){
-    event.preventDefault();
+  $("form").on("keyup", "input#inputUnitNumber", function(){
+    if(validateUnitNumber($(this).val())){
+      enableButtonSubmit();
+    } else {
+      disableButtonSubmit();
+    }
+  })
+
+  $("form").on("keyup", "input#inputCity", function(){
+    if(validateCity($(this).val())){
+      enableButtonSubmit();
+    } else {
+      disableButtonSubmit();
+    }
+  })
+
+  $("form").on("keyup", "input#inputCountry", function(){
+    if(validateCity($(this).val())){
+      enableButtonSubmit();
+    } else {
+      disableButtonSubmit();
+    }
+  })
+
+  $("form").on("keyup", "input#inputZip", function(){
+    if(validatePhone($(this).val())){
+      enableButtonSubmit();
+    } else {
+      disableButtonSubmit();
+    }
+  })
+
+  $("form").on("keyup", "input#inputComment", function(){
+    if(validateComment($(this).val())){
+      enableButtonSubmit();
+    } else {
+      disableButtonSubmit();
+    }
   })
 
 
-
+  $("button#buttonSubmit").on("click",function(event){
+    event.preventDefault();
+  })
 
 })

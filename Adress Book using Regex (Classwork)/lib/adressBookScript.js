@@ -51,3 +51,18 @@ var validatePhone = function (number){
   var validateAddress = /^[a-zA-Z\s.*0-9-*]*$/;
   return validateAddress.test(address);
 }
+
+  var validateUnitNumber = function (unitNumber){
+  var validateUnit = /^[\S]*$/;
+  return validateAddress.test(unitNumber);
+}
+
+  var validateCity = function (cityName){
+  var validateCityName = /^[A-Z+a-z\s]*$/;
+  return validateAddress.test(cityName);
+  }
+
+  var validateComment = function (comment){
+  var validateCom = /^[\w\s\W]*$/;
+  return validateComment.test(comment);
+  }
