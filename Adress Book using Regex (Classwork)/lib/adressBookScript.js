@@ -1,4 +1,7 @@
 var validateAll = false;
+var myContacts = [];
+var contacts = 0;
+var firstName, middleInitial, lastName, personalEmail, businessEmail, mobilePhone, homePhone, businessPhone, streetAddres, unitNum, city, country, zip, comm;
 
 var disableButtonSubmit = function(){
   $("button#buttonSubmit").attr("disabled", "disabled");
@@ -54,15 +57,32 @@ var validatePhone = function (number){
 
   var validateUnitNumber = function (unitNumber){
   var validateUnit = /^[\S]*$/;
-  return validateAddress.test(unitNumber);
+  return validateUnit.test(unitNumber);
 }
 
   var validateCity = function (cityName){
   var validateCityName = /^[A-Z+a-z\s]*$/;
-  return validateAddress.test(cityName);
+  return validateCityName.test(cityName);
   }
 
   var validateComment = function (comment){
   var validateCom = /^[\w\s\W]*$/;
-  return validateComment.test(comment);
+  return validateCom.test(comment);
+  }
+
+  var addContact = function(newContact){
+    myContacts.push(newContact);
+    contacts++;
+  }
+
+  var confirmMessage = function (){
+    var r = confirm("Press a button");
+    return r;
+  }
+
+  var getContactDetails = function (contactIndex){
+
+
+
+
   }

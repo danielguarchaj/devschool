@@ -40,12 +40,33 @@
     <input type="text" class="form-control" id="inputZip" placeholder="Zip Code"><br>
     <input type="text" class="form-control" id="inputComment" placeholder="Write a comment"><br>
   </div>
-  <button type="button" class="btn btn-primary" id="buttonSubmit">Add Contact</button>
+  <button type="button" class="btn btn-primary" id="buttonSubmit">Add New Contact</button>
+  <button type="button" class="btn btn-info" id="buttonView">View Contact Details</button>
+  <select id="selectContact">
+  <option value="selectContact">Choose Contact</option>
+  </select>
   <button type="button" class="btn btn-danger" id="buttonDelete">Delete Contact</button>
   <button type="button" class="btn btn-warning" id="buttonEdit">Edit Contact</button>
 </form>
 <h3>My Contact List:</h3>
-<ol class="mytasks"></ol>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Personal Email</th>
+      <th>Business Email</th>
+      <th>Mobile Phone</th>
+      <th>Home Phone</th>
+      <th>Business Phone</th>
+    </tr>
+  </thead>
+  <tbody id="contactRow">
+    <tr>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 </body>

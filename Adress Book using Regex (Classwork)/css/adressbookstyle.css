@@ -1,3 +1,21 @@
 body{
   background-color: whiteSmoke;
 }
+#buttonDelete{
+  display: none;
+}
+#buttonEdit{
+  display: none;
+}
+#buttonSubmit{
+  display: none;
+}
+#buttonView{
+  display: none;
+}
+#selectContact{
+  display: none;
+}
+/*.eruptingVolcano{
+  display: none;
+}*/
