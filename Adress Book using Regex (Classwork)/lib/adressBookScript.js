@@ -1,11 +1,11 @@
-var validateAll = false;
+
 var myContacts = [];
-var contacts = 0;
+var contact = 0;
 var firstName, middleInitial, lastName, personalEmail, businessEmail, mobilePhone, homePhone, businessPhone, streetAddres, unitNum, city, country, zip, comm;
 
 var disableButtonSubmit = function(){
   $("button#buttonSubmit").attr("disabled", "disabled");
-  validateAll = false;
+
   console.log("button submit disabled");
 }
 
@@ -21,7 +21,7 @@ var disableButtonEdit = function(){
 
 var enableButtonSubmit = function(){
   $("button#buttonSubmit").removeAttr("disabled");
-  validateAll = true;
+
   console.log("button submit enabled");
 }
 
@@ -34,6 +34,27 @@ var enableButtonEdit = function(){
   $("button#buttonEdit").removeAttr("disabled");
   console.log("button edit enabled");
 }
+
+var cleanInputs = function (){
+
+  $("input#inputFirstName").val("");
+  $("input#inputMiddleInitial").val("");
+  $("input#inputLastName").val("");
+  $("input#inputPersonalEmail").val("");
+  $("input#inputBusinessEmail").val("");
+  $("input#inputMobile").val("");
+  $("input#inputHome").val("");
+  $("input#inputWork").val("");
+  $("input#inputStreetAdress").val("");
+  $("input#inputUnitNumber").val("");
+  $("input#inputCity").val("");
+  $("input#inputCountry").val("");
+  $("input#inputZip").val("");
+  $("input#inputComment").val("");
+
+}
+
+
 
 var validateNames = function (name){
   var validatedName = /^[a-zA-Z\s]*$/;
@@ -71,8 +92,25 @@ var validatePhone = function (number){
   }
 
   var addContact = function(newContact){
-    myContacts.push(newContact);
-    contacts++;
+    contact = myContacts.push(newContact);
+    //contacts++;
+  }
+
+  var deleteContact = function(contactIndex){
+    // myFish is ['angel', 'clown', 'drum', 'mandarin', 'surgeon']
+    // removes 1 element from index 3
+    // removed = myFish.splice(3, 1);
+    // myFish is ['angel', 'clown', 'drum', 'surgeon']
+    // removed is ['mandarin']
+
+
+
+  }
+
+  var fillContactsTable = function(lenght){
+
+
+
   }
 
   var confirmMessage = function (){
@@ -82,7 +120,19 @@ var validatePhone = function (number){
 
   var getContactDetails = function (contactIndex){
 
-
-
+    $("input#inputFirstName").val(myContacts[contactIndex].firstName);
+    $("input#inputMiddleInitial").val(myContacts[contactIndex].middleInitial);
+    $("input#inputLastName").val(myContacts[contactIndex].lastName);
+    $("input#inputPersonalEmail").val(myContacts[contactIndex].personalEmail);
+    $("input#inputBusinessEmail").val(myContacts[contactIndex].businessEmail);
+    $("input#inputMobile").val(myContacts[contactIndex].mobilePhone);
+    $("input#inputHome").val(myContacts[contactIndex].homePhone);
+    $("input#inputWork").val(myContacts[contactIndex].businessPhone);
+    $("input#inputStreetAdress").val(myContacts[contactIndex].streetAddres);
+    $("input#inputUnitNumber").val(myContacts[contactIndex].unitNum);
+    $("input#inputCity").val(myContacts[contactIndex].city);
+    $("input#inputCountry").val(myContacts[contactIndex].country);
+    $("input#inputZip").val(myContacts[contactIndex].zip);
+    $("input#inputComment").val(myContacts[contactIndex].comm);
 
   }

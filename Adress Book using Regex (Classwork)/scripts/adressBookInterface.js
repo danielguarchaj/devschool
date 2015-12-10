@@ -1,8 +1,6 @@
 $(document).ready(function(){
 
   disableButtonSubmit();
-  //disableButtonDelete();
-  //disableButtonEdit();
   $("#buttonSubmit").fadeIn();
 
   $("form").on("keyup", "input#inputFirstName", function(){
@@ -77,15 +75,6 @@ $(document).ready(function(){
     }
   })
 
-  // $("form").on("keyup", "input#inputBusinessEmail", function(){
-  //   businessEmail = $(this).val();
-  //   if(validateEmail($(this).val())){
-  //     enableButtonSubmit();
-  //   } else {
-  //     disableButtonSubmit();
-  //   }
-  // })
-
   $("form").on("keyup", "input#inputStreetAdress", function(){
     streetAddres = $(this).val();
     if(validateStreetAddress($(this).val())){
@@ -140,28 +129,17 @@ $(document).ready(function(){
     }
   })
 
-  // $("img").on("click", function(){
-  //   $(".eruptingVolcano").fadeIn();
-  //   $(".normalVolcano").fadeOut();
-  // })
-
   $("button#buttonSubmit").on("click",function(event){
     event.preventDefault();
     var objectContact = {firstName, middleInitial, lastName, personalEmail, businessEmail, mobilePhone, homePhone, businessPhone, streetAddres, unitNum, city, country, zip, comm};
     addContact(objectContact);
+    cleanInputs();
+    $('#contactRow tr:last').after('<tr> <td>'+myContacts[contact].firstName+'</td> <td>'+ myContacts[contact].personalEmail+'</td> <td>'+ myContacts[contact].businessEmail +'</td> <td>'+ myContacts[contact].mobilePhone +'</td> <td>'
+    + myContacts[contact].homePhone +'</td> <td>'+ myContacts[contact].businessPhone +'</td> <td><button type="button" class="btn btn-success view-details" id="'+contact+'">View Details</button></td> </tr>');
+    //contact++;
+    disableButtonSubmit();
     console.log(myContacts);
-    console.log(contacts);
-    newButtonID = contacts -1;
-    $('#contactRow tr:last').after('<tr> <td>'+myContacts[0].firstName+'</td> <td>'+ myContacts[0].personalEmail+'</td> <td>'+ myContacts[0].businessEmail +'</td> <td>'+ myContacts[0].mobilePhone +'</td> <td>'
-    + myContacts[0].homePhone +'</td> <td>'+ myContacts[0].businessPhone +'</td> <td><button type="button" class="btn btn-success view-details" id="'+newButtonID+'">View Details</button></td> </tr>');
-  })
-
-  $("button#buttonView").on("click",function(){
-    $("#buttonEdit").fadeIn();
-    $("#buttonDelete").fadeIn();
-    $("#selectContact").fadeIn();
-    $("#buttonSubmit").fadeOut();
-    $(this).fadeOut();
+    console.log(contact);
   })
 
   $("button#buttonDelete").on("click", function(){
@@ -173,6 +151,7 @@ $(document).ready(function(){
     $("#selectContact").fadeOut();
     $("#buttonEdit").fadeOut();
     $(this).fadeOut();
+    cleanInputs();
   })
   $("button#buttonEdit").on("click",function(){
     if(confirmMessage()){
@@ -183,18 +162,15 @@ $(document).ready(function(){
     $("#selectContact").fadeOut();
     $("#buttonDelete").fadeOut();
     $(this).fadeOut();
+    cleanInputs();
   })
   $("body").on("click", ".view-details", function(e){
     e.preventDefault();
-    var idButtonView = $(this).attr('id');
-
-      $("#buttonEdit").fadeIn();
-      $("#buttonDelete").fadeIn();
-      $("#selectContact").fadeIn();
-      $("#buttonSubmit").fadeOut();
-
-
-    console.log(idButtonView);
+    getContactDetails(parseInt($(this).attr('id')));
+    $("#buttonEdit").fadeIn();
+    $("#buttonDelete").fadeIn();
+    $("#selectContact").fadeIn();
+    $("#buttonSubmit").fadeOut();
   });
 
 })
