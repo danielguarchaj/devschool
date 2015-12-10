@@ -134,8 +134,7 @@ $(document).ready(function(){
     var objectContact = {firstName, middleInitial, lastName, personalEmail, businessEmail, mobilePhone, homePhone, businessPhone, streetAddres, unitNum, city, country, zip, comm};
     addContact(objectContact);
     cleanInputs();
-    $('#contactRow tr:last').after('<tr> <td>'+myContacts[contact].firstName+'</td> <td>'+ myContacts[contact].personalEmail+'</td> <td>'+ myContacts[contact].businessEmail +'</td> <td>'+ myContacts[contact].mobilePhone +'</td> <td>'
-    + myContacts[contact].homePhone +'</td> <td>'+ myContacts[contact].businessPhone +'</td> <td><button type="button" class="btn btn-success view-details" id="'+contact+'">View Details</button></td> </tr>');
+    fillContactsTable();
     //contact++;
     disableButtonSubmit();
     console.log(myContacts);

@@ -107,8 +107,14 @@ var validatePhone = function (number){
 
   }
 
-  var fillContactsTable = function(lenght){
-
+  var fillContactsTable = function(){
+    $("#contactRow").find("tr:gt(0)").remove();
+    for(var i=0; i<contact; i++){
+      $('#contactRow tr:last').after('<tr> <td>'+myContacts[i].firstName+'</td> <td>'+ myContacts[i].personalEmail+
+      '</td> <td>'+ myContacts[i].businessEmail +'</td> <td>'+ myContacts[i].mobilePhone +'</td> <td>'
+      + myContacts[i].homePhone +'</td> <td>'+ myContacts[i].businessPhone +
+      '</td> <td><button type="button" class="btn btn-success view-details" id="'+i+'">View Details</button></td> </tr>');
+    }
 
 
   }
