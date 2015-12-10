@@ -143,7 +143,11 @@ $(document).ready(function(){
 
   $("button#buttonDelete").on("click", function(){
     if(confirmMessage()){
-      alert("Contact deleted!")
+
+      deleteContact(contactSelected);
+      fillContactsTable();
+
+    alert("Contact deleted!")
     }
     $("#buttonSubmit").fadeIn();
     $("#buttonView").fadeIn();
@@ -151,10 +155,17 @@ $(document).ready(function(){
     $("#buttonEdit").fadeOut();
     $(this).fadeOut();
     cleanInputs();
+    enableInputs();
   })
   $("button#buttonEdit").on("click",function(){
+    enableInputs();
+    $("button#buttonUpdate").fadeIn();
+    $("button#buttonDelete").fadeOut();
+    $(this).fadeOut();
+  })
+  $("button#buttonUpdate").on("click",function(){
     if(confirmMessage()){
-      alert("Contact edited!")
+      alert("Contact updated!");
     }
     $("#buttonSubmit").fadeIn();
     $("#buttonView").fadeIn();
@@ -162,10 +173,14 @@ $(document).ready(function(){
     $("#buttonDelete").fadeOut();
     $(this).fadeOut();
     cleanInputs();
+    enableInputs();
   })
   $("body").on("click", ".view-details", function(e){
     e.preventDefault();
-    getContactDetails(parseInt($(this).attr('id')));
+    disableInputs();
+    contactSelected = parseInt($(this).attr('id'));
+    getContactDetails(contactSelected);
+    console.log(contactSelected);
     $("#buttonEdit").fadeIn();
     $("#buttonDelete").fadeIn();
     $("#selectContact").fadeIn();
