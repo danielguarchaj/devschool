@@ -1,11 +1,10 @@
 var contactSelected = 0;
 var myContacts = [];
 var contact = 0;
-var firstName, middleInitial, lastName, personalEmail, businessEmail, mobilePhone, homePhone, businessPhone, streetAddres, unitNum, city, country, zip, comm;
+var firstName = "", middleInitial = "", lastName = "", personalEmail = "", businessEmail = "", mobilePhone = "", homePhone = "", businessPhone = "", streetAddres = "", unitNum = "", city = "", country = "", zip = "", comm = "";
 
 var disableButtonSubmit = function(){
   $("button#buttonSubmit").attr("disabled", "disabled");
-
   console.log("button submit disabled");
 }
 
@@ -21,7 +20,6 @@ var disableButtonEdit = function(){
 
 var enableButtonSubmit = function(){
   $("button#buttonSubmit").removeAttr("disabled");
-
   console.log("button submit enabled");
 }
 
@@ -36,7 +34,6 @@ var enableButtonEdit = function(){
 }
 
 var cleanInputs = function (){
-
   $("input#inputFirstName").val("");
   $("input#inputMiddleInitial").val("");
   $("input#inputLastName").val("");
@@ -51,11 +48,9 @@ var cleanInputs = function (){
   $("input#inputCountry").val("");
   $("input#inputZip").val("");
   $("input#inputComment").val("");
-
 }
 
 var getContactDetails = function (contactIndex){
-
   $("input#inputFirstName").val(myContacts[contactIndex].firstName);
   $("input#inputMiddleInitial").val(myContacts[contactIndex].middleInitial);
   $("input#inputLastName").val(myContacts[contactIndex].lastName);
@@ -70,11 +65,9 @@ var getContactDetails = function (contactIndex){
   $("input#inputCountry").val(myContacts[contactIndex].country);
   $("input#inputZip").val(myContacts[contactIndex].zip);
   $("input#inputComment").val(myContacts[contactIndex].comm);
-
 }
 
 var disableInputs = function(){
-
   $("input#inputFirstName").attr("disabled", "disabled");
   $("input#inputMiddleInitial").attr("disabled", "disabled");
   $("input#inputLastName").attr("disabled", "disabled");
@@ -89,12 +82,9 @@ var disableInputs = function(){
   $("input#inputCountry").attr("disabled", "disabled");
   $("input#inputZip").attr("disabled", "disabled");
   $("input#inputComment").attr("disabled", "disabled");
-
-
 }
 
 var enableInputs = function(){
-
   $("input#inputFirstName").removeAttr("disabled");
   $("input#inputMiddleInitial").removeAttr("disabled");
   $("input#inputLastName").removeAttr("disabled");
@@ -109,10 +99,26 @@ var enableInputs = function(){
   $("input#inputCountry").removeAttr("disabled");
   $("input#inputZip").removeAttr("disabled");
   $("input#inputComment").removeAttr("disabled");
-
 }
 
-
+var getInputsData = function(){
+  firstName = $("input#inputFirstName").val();
+  middleInitial = $("input#inputMiddleInitial").val();
+  lastName = $("input#inputLastName").val();
+  personalEmail = $("input#inputPersonalEmail").val();
+  businessEmail = $("input#inputBusinessEmail").val();
+  mobilePhone = $("input#inputMobile").val();
+  homePhone = $("input#inputHome").val();
+  businessPhone = $("input#inputWork").val();
+  streetAddres = $("input#inputStreetAdress").val();
+  unitNum = $("input#inputUnitNumber").val();
+  city = $("input#inputCity").val();
+  country = $("input#inputCountry").val();
+  zip = $("input#inputZip").val();
+  comm = $("input#inputComment").val();
+  return objectUpdated = {firstName, middleInitial, lastName, personalEmail,
+  businessEmail, mobilePhone, homePhone, businessPhone, streetAddres, unitNum, city, country, zip, comm};
+}
 
 var validateNames = function (name){
   var validatedName = /^[a-zA-Z\s]*$/;
@@ -148,21 +154,26 @@ var validatePhone = function (number){
   var validateCom = /^[\w\s\W]*$/;
   return validateCom.test(comment);
   }
-
+  function validate(input){
+    var inputval = input.val();
+    if(validateNames(input.val())){
+      enableButtonSubmit();
+    } else {
+      disableButtonSubmit();
+    }
+  }
   var addContact = function(newContact){
     contact = myContacts.push(newContact);
   }
 
   var deleteContact = function(contactIndex){
-
     var removed = myContacts.splice(contactIndex,1);
-    console.log(removed);
-
+    console.log("Contact removed: "+removed);
   }
 
-  var updateContact = function(contactIndex){
-    
-
+  var updateContact = function(contactIndex, newData){
+    var updated = myContacts[contactIndex] = newData;
+    console.log("New data: "+updated+" in myContact["+contactIndex+"]position");
   }
 
   var fillContactsTable = function(){
@@ -173,8 +184,23 @@ var validatePhone = function (number){
       + myContacts[i].homePhone +'</td> <td>'+ myContacts[i].businessPhone +
       '</td> <td><button type="button" class="btn btn-success view-details" id="'+i+'">View Details</button></td> </tr>');
     }
+  }
 
-
+  var resetVariables = function(){
+    firstName = "";
+    middleInitial = "";
+    lastName = "";
+    personalEmail = "";
+    businessEmail = "";
+    mobilePhone = "";
+    homePhone = "";
+    businessPhone = "";
+    streetAddres = "";
+    unitNum = "";
+    city = "";
+    country = "";
+    zip = "";
+    comm = "";
   }
 
   var confirmMessage = function (){

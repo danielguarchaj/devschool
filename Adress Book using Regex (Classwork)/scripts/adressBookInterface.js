@@ -1,8 +1,6 @@
 $(document).ready(function(){
-
   disableButtonSubmit();
-  $("#buttonSubmit").fadeIn();
-
+  $("#buttonSubmit").show();
   $("form").on("keyup", "input#inputFirstName", function(){
     firstName = $(this).val();
     if(validateNames($(this).val())){
@@ -11,7 +9,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputMiddleInitial", function(){
     middleInitial = $(this).val();
     if(validateNames($(this).val())){
@@ -20,7 +17,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputLastName", function(){
     lastName = $(this).val();
     if(validateNames($(this).val())){
@@ -29,7 +25,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputPersonalEmail", function(){
     personalEmail = $(this).val();
     if(validateEmail($(this).val())){
@@ -38,7 +33,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputBusinessEmail", function(){
     businessEmail = $(this).val();
     if(validateEmail($(this).val())){
@@ -47,7 +41,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputMobile", function(){
     mobilePhone = $(this).val();
     if(validatePhone($(this).val())){
@@ -65,7 +58,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputWork", function(){
     businessPhone = $(this).val();
     if(validatePhone($(this).val())){
@@ -83,7 +75,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputUnitNumber", function(){
     unitNum = $(this).val();
     if(validateUnitNumber($(this).val())){
@@ -92,7 +83,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputCity", function(){
     city = $(this).val();
     if(validateCity($(this).val())){
@@ -101,7 +91,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputCountry", function(){
     country = $(this).val();
     if(validateCity($(this).val())){
@@ -110,7 +99,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputZip", function(){
     zip = $(this).val();
     if(validatePhone($(this).val())){
@@ -119,7 +107,6 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("form").on("keyup", "input#inputComment", function(){
     comm = $(this).val();
     if(validateComment($(this).val())){
@@ -128,63 +115,61 @@ $(document).ready(function(){
       disableButtonSubmit();
     }
   })
-
   $("button#buttonSubmit").on("click",function(event){
     event.preventDefault();
     var objectContact = {firstName, middleInitial, lastName, personalEmail, businessEmail, mobilePhone, homePhone, businessPhone, streetAddres, unitNum, city, country, zip, comm};
     addContact(objectContact);
     cleanInputs();
     fillContactsTable();
-    //contact++;
+    resetVariables();
     disableButtonSubmit();
     console.log(myContacts);
     console.log(contact);
   })
-
   $("button#buttonDelete").on("click", function(){
     if(confirmMessage()){
-
       deleteContact(contactSelected);
       fillContactsTable();
-
     alert("Contact deleted!")
     }
-    $("#buttonSubmit").fadeIn();
-    $("#buttonView").fadeIn();
-    $("#selectContact").fadeOut();
-    $("#buttonEdit").fadeOut();
-    $(this).fadeOut();
+    $("#buttonSubmit").show();
+    $("#buttonView").show();
+    $("#selectContact").hide();
+    $("#buttonEdit").hide();
+    $(this).hide();
     cleanInputs();
     enableInputs();
   })
   $("button#buttonEdit").on("click",function(){
     enableInputs();
-    $("button#buttonUpdate").fadeIn();
-    $("button#buttonDelete").fadeOut();
-    $(this).fadeOut();
+    $("button#buttonUpdate").show();
+    $("button#buttonDelete").hide();
+    $(this).hide();
   })
   $("button#buttonUpdate").on("click",function(){
     if(confirmMessage()){
+      updateContact(contactSelected, getInputsData());
+      fillContactsTable();
       alert("Contact updated!");
     }
-    $("#buttonSubmit").fadeIn();
-    $("#buttonView").fadeIn();
-    $("#selectContact").fadeOut();
-    $("#buttonDelete").fadeOut();
-    $(this).fadeOut();
+    $("#buttonSubmit").show();
+    $(this).hide();
     cleanInputs();
     enableInputs();
+    resetVariables();
+    disableButtonSubmit();
+  })
+  $("button#buttonCancel").on("click",function(){
   })
   $("body").on("click", ".view-details", function(e){
     e.preventDefault();
     disableInputs();
     contactSelected = parseInt($(this).attr('id'));
     getContactDetails(contactSelected);
-    console.log(contactSelected);
-    $("#buttonEdit").fadeIn();
-    $("#buttonDelete").fadeIn();
-    $("#selectContact").fadeIn();
-    $("#buttonSubmit").fadeOut();
+    console.log("Index contact: "+contactSelected);
+    $("#buttonEdit").show();
+    $("#buttonDelete").show();
+    $("#buttonSubmit").hide();
+    $("buttonCancel").show();
   });
-
 })

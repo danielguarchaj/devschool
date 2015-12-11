@@ -16,3 +16,6 @@ body{
 #buttonUpdate{
   display: none;
 }
+#buttonCancel{
+  display: none;
+}
