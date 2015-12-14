@@ -26,7 +26,7 @@
         <input type="password" class="form-control" id="inputPin" placeholder="PIN"><br>
         <button type="button" class="btn btn-success" id="buttonNewAccount">Create New Account</button>
       </div><br>
-      
+
       <div class="form-inLine" id = "logInAccountDiv">
         <h3>Login</h3>
         <label for="inputNameLogin">Owner Name</label>
@@ -37,7 +37,7 @@
       </div><br>
 
       <div class="form-inLine" id = "transfersDiv">
-        <h3>Checking Account</h3>
+        <h3>Checking <span id="accountOwner"></span>Account</h3>
         <h4>Current Balance $.<span id="currentBalance"></span></h4>
         <label for="inputAmount">Amount</label>
         <input type="text" class="form-control" id="inputAmount" placeholder="$.00.00">
@@ -50,8 +50,8 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Name</th>
               <th>Balance</th>
+              <th>Transfer Amount</th>
               <th>Memo</th>
             </tr>
           </thead>

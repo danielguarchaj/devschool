@@ -7,23 +7,20 @@ function Account(balance){
   }
   this.retire = function(amount){
     if(this.balance < amount){
-      return "Error";
+      alert("Insufficient balance!");
+      return false;
     }else{
       this.balance -= amount;
-      return this.balance;
+      return true;
     }
   }
 }
 
 function User(name, pin){
-
   this.name = name;
   this.pin = pin;
   this.history = []
-  this.tracking = function(amount, pin, memo){
-    this.amount = name;
-    this.pin = pin;
-    this.memo = memo;
+  this.tracking = function(newTransfer){
+    this.history.push(newTransfer);
   }
-
 }

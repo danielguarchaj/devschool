@@ -1,20 +1,10 @@
-/*
-trackingAccount
-[Object]
-trackingAccount[0].nuevaCuenta;
-Account {balance: "222"}
-trackingAccount[0].nuevoUsuario;
-User {name: "Daniel", pin: "222"}
-trackingAccount[0].nuevoUsuario.name;
-"Daniel"
-trackingAccount[0].nuevoUsuario.pin;
-"222"
-*/
 var accounts = [];
 var trackingAccount = [];
 var objectCuentaUsuario = {};
 var cuenta;
 var usuario;
+var posUser = 0;
+
 
 var cleanFieldsNewAccount = function(){
   $("input#inputBeginningBalance").val("");
@@ -33,7 +23,7 @@ var cleanFieldsTransfers = function(){
 
 var addAccount = function(name, balance, pin){
 
-  cuenta = new Account(balance);
+  cuenta = new Account(parseInt(balance));
   usuario = new User(name, pin);
   objectCuentaUsuario = {cuenta, usuario};
   accounts.push(objectCuentaUsuario);
@@ -51,32 +41,33 @@ var logOut = function(){
 }
 
 var checkLogIn = function(){
-  // $("#newAccountDiv").hide();
-  // $("#logInAccountDiv").hide();
-  // $("#transfersDiv").show();
+
   var loginName = $("input#inputNameLogin").val();
   var loginPin = $("input#inputPinLogin").val();
-  //var loginCorrecto = false;
+  var username, userpin;
   for(var i=0; i<accounts.length; i++){
-  if(loginName === accounts[i].usuario.name && loginPin === accounts[i].usuario.pin)
-    return true;
+    username = accounts[i].usuario.name;
+    userpin = accounts[i].usuario.pin;
+      if((loginName === username) && (loginPin === userpin)){
+        posUser = i;
+        return true;
+      }
   }
 }
 
 var logIn = function(){
-
+    $("span#accountOwner").text(accounts[posUser].usuario.name+"'s ");
+    $("span#currentBalance").text(accounts[posUser].cuenta.balance);
     $("#newAccountDiv").hide();
     $("#logInAccountDiv").hide();
     $("#transfersDiv").show();
-
+    getHistory();
 }
 
-var deposit = function(){
-
-
-}
-
-var retire = function(){
-
-
+var getHistory = function(){
+  $("#transferRow").find("tr:gt(0)").remove();
+  for(var i=0; i<accounts[posUser].usuario.history.length; i++){
+    $('#transferRow tr:last').after('<tr> <td>'+accounts[posUser].usuario.history[i].newBalance+'</td> <td>'+ accounts[posUser].usuario.history[i].amount+
+    '</td> <td>'+ accounts[posUser].usuario.history[i].memo +'</td> </tr>');
+  }
 }

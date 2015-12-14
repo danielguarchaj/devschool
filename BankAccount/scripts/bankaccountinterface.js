@@ -27,14 +27,31 @@ $("button#buttonLogOut").on("click", function(){
 })
 
 $("button#buttonDeposit").on("click", function(){
-  var amount = $("input#inputAmount").val();
+  var amount = parseInt($("input#inputAmount").val());
   var memo = $("input#inputMemo").val();
-  nuevaCuenta.deposit(amount);
-  nuevaCuenta.tracking(amount, "", memo);
+  accounts[posUser].cuenta.deposit(amount);
+  var newBalance = accounts[posUser].cuenta.balance;
+  var objectTracking = {newBalance, amount, memo};
+  accounts[posUser].usuario.tracking(objectTracking);
+  console.log(objectTracking);
+  cleanFieldsTransfers();
+  getHistory();
+  $("span#currentBalance").text(accounts[posUser].cuenta.balance);
 })
 
 $("button#buttonRetire").on("click", function(){
+  var amount = parseInt($("input#inputAmount").val());
+  var memo = $("input#inputMemo").val();
 
+  if(accounts[posUser].cuenta.retire(amount)){
+    var newBalance = accounts[posUser].cuenta.balance;
+    var objectTracking = {newBalance, amount, memo};
+    accounts[posUser].usuario.tracking(objectTracking);
+    console.log(objectTracking);
+    cleanFieldsTransfers();
+    getHistory();
+    $("span#currentBalance").text(accounts[posUser].cuenta.balance);
+  }
 })
 
 })
