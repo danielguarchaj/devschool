@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="css/bankaccountStyles.css">
   <script src="scripts/jquery-1.11.3.js"></script>
   <script src="lib/bankaccountscript.js"></script>
+  <script src="lib/clases.js"></script>
   <script src="scripts/bankaccountinterface.js"></script>
 </head>
 
@@ -22,16 +23,16 @@
         <label for="inputBeginningBalance">Beginning Balance</label>
         <input type="text" class="form-control" id="inputBeginningBalance" placeholder="Beginning Balance"><br>
         <label for="inputPin">New Pin</label>
-        <input type="text" class="form-control" id="inputPin" placeholder="PIN"><br>
+        <input type="password" class="form-control" id="inputPin" placeholder="PIN"><br>
         <button type="button" class="btn btn-success" id="buttonNewAccount">Create New Account</button>
       </div><br>
-
+      
       <div class="form-inLine" id = "logInAccountDiv">
         <h3>Login</h3>
         <label for="inputNameLogin">Owner Name</label>
         <input type="text" class="form-control" id="inputNameLogin" placeholder="Owner Name">
         <label for="inputPinLogin">PIN</label>
-        <input type="text" class="form-control" id="inputPinLogin" placeholder="PIN">
+        <input type="password" class="form-control" id="inputPinLogin" placeholder="PIN">
         <button type="button" class="btn btn-success" id="buttonLogIn">Log In</button>
       </div><br>
 
@@ -54,7 +55,7 @@
               <th>Memo</th>
             </tr>
           </thead>
-          <tbody id="contactRow">
+          <tbody id="transferRow">
             <tr>
               <td></td><td></td><td></td>
             </tr>

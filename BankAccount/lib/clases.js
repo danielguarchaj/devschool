@@ -19,5 +19,11 @@ function User(name, pin){
 
   this.name = name;
   this.pin = pin;
+  this.history = []
+  this.tracking = function(amount, pin, memo){
+    this.amount = name;
+    this.pin = pin;
+    this.memo = memo;
+  }
 
 }
