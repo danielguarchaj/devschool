@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>Bank Account</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bankaccountStyles.css">
+  <script src="scripts/jquery-1.11.3.js"></script>
+  <script src="lib/bankaccountscript.js"></script>
+  <script src="scripts/bankaccountinterface.js"></script>
+</head>
+
+<body>
+  <div class="container">
+<h1>Bank Account</h1><br>
+
+    <form id="formBank">
+
+
+      <div class="form-group" id = "newAccountDiv">
+        <h3>Create New Bank Account</h3>
+        <label for="inputOwnerName">Owner Name</label>
+        <input type="text" class="form-control" id="inputOwnerName" placeholder="Owner Name"><br>
+        <label for="inputBeginningBalance">Beginning Balance</label>
+        <input type="text" class="form-control" id="inputBeginningBalance" placeholder="Beginning Balance"><br>
+        <label for="inputPin">New Pin</label>
+        <input type="text" class="form-control" id="inputPin" placeholder="PIN"><br>
+        <button type="button" class="btn btn-success" id="buttonNewAccount">Create New Account</button>
+      </div><br>
+
+      <div class="form-inLine" id = "logInAccountDiv">
+        <h3>Login</h3>
+        <label for="inputNameLogin">Owner Name</label>
+        <input type="text" class="form-control" id="inputNameLogin" placeholder="Owner Name">
+        <label for="inputPinLogin">PIN</label>
+        <input type="text" class="form-control" id="inputPinLogin" placeholder="PIN">
+        <button type="button" class="btn btn-success" id="buttonLogIn">Log In</button>
+      </div><br>
+
+      <div class="form-inLine" id = "transfersDiv">
+        <h3>Checking Account</h3>
+        <h4>Current Balance $.<span id="currentBalance"></span></h4>
+        <label for="inputAmount">Amount</label>
+        <input type="text" class="form-control" id="inputAmount" placeholder="$.00.00">
+        <label for="inputMemo">Memo</label>
+        <input type="text" class="form-control" id="inputMemo" placeholder="Write a memo...">
+        <button type="button" class="btn btn-success" id="buttonDeposit">Deposit</button>
+        <button type="button" class="btn btn-danger" id="buttonRetire">Retire</button>
+        <button type="button" class="btn btn-primary" id="buttonLogOut">Log Out</button>
+        <h4>Tracking Account</h4>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Balance</th>
+              <th>Memo</th>
+            </tr>
+          </thead>
+          <tbody id="contactRow">
+            <tr>
+              <td></td><td></td><td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><br>
+
+    </form>
+
+  </div>
+</body>
+</html>
