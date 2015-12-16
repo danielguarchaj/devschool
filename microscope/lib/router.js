@@ -1,5 +1,7 @@
 Router.configure({
-  layoutTemplate: 'layout'
+  layoutTemplate: 'layout',
+  loadingTemplate: 'loading',
+  waitOn: function() { return Meteor.subscribe('posts'); }
 });
 
-Route.route('/', {name: 'postList'});
+Router.route('/', {name: 'postsList'});
