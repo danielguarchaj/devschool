@@ -18,7 +18,11 @@ Router.route('/submit', {name: 'postSubmit'});
 
 var requireLogin = function() {
   if(! Meteor.user()) {
-    this.render('accesDenied');
+    if(Meteor.loggingIn()){
+      this.render(this.loadingTemplate);
+    }else{
+      this.render('accesDenied');
+    }
   }else{
     this.next();
   }
