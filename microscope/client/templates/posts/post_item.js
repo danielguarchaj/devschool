@@ -8,4 +8,7 @@ Template.postItem.helpers({
   a.href = this.url;
   return a.hostname;
   }
+  commentsCont: function() {
+    return Comments.find({postId: this._id}).count();
+  }
 });
