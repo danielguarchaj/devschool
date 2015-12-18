@@ -5,6 +5,9 @@ Template.postEdit.onCreated(function() {
 Template.postEdit.helpers({
     errorMessage: function(field) {
       return Session.get('postEditErrors')[field] ? 'has-error' : '';
+    },
+    errorClass: function(field) {
+      return !!Session.get('postEditErrors')[field] ? 'has-error' : '';
     }
 });
 
