@@ -12,6 +12,14 @@ Posts.deny({
   }
 });
 
+Posts.deny({
+  update: function(userId, post, fieldNames, modifier) {
+    // may onely edit the following two fields:
+    var errors = validatePost(modifier.$set);
+    return errors.title || errors.url;
+  }
+});
+
 validatePost = function (post) {
   var errors = {};
 
