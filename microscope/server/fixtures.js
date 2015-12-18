@@ -1,4 +1,4 @@
-if(Posts.find().count()===0){
+if(Posts.find().count() === 0){
 
   var now = new Date().getTime();
 
@@ -13,11 +13,12 @@ if(Posts.find().count()===0){
   var sacha = Meteor.users.findOne(sachaId);
 
   var telescopeId = Posts.insert({
-    title: 'Introducin telescope',
+    title: 'Introducing telescope',
     userId: sacha._id,
     author: sacha.profile.name,
     url: 'http://sachagreif.com/introducing-telescope/',
     submitted: new Date(now - 7 * 3600 * 1000),
+    commentsCount: 2
   });
 
   Comments.insert({
