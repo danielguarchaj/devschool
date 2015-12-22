@@ -1,5 +1,5 @@
 Template.header.helpers({
-  activeRouteClass: function(/* route names */) {
+  activeRouteClass: function(name) {
     var args = Array.prototype.slice.call(arguments, 0);
     args.pop();
 
