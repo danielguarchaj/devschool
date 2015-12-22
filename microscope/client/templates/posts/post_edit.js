@@ -22,6 +22,10 @@ Template.postEdit.events({
       title: $(e.target).find('[name=title]').val()
     }
 
+    var errors = validatePost(postProperties);
+    if(errors.title || errors.url)
+      return Session.set('postEditErrors', errors);
+
     Posts.update(currentPostId, {$set: postProperties}, function(error){
       if(error){
         //display the error to the user

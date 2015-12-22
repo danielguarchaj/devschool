@@ -52,7 +52,9 @@ Router.route('/', {
 })
 
 Router.route('/new/:postsLimit?', {name: 'newPosts'});
+
 Router.route('/best/:postsLimit?', {name: 'bestPosts'});
+
 
 Router.route('/posts/:_id', {
   name: 'postPage',

@@ -14,7 +14,6 @@ Posts.deny({
 
 Posts.deny({
   update: function(userId, post, fieldNames, modifier) {
-    // may onely edit the following two fields:
     var errors = validatePost(modifier.$set);
     return errors.title || errors.url;
   }
@@ -50,14 +49,6 @@ Meteor.methods({
         postExists: true,
         _id: postWithSameLink._id
       }
-    }
-
-    if(Meteor.isServer){
-      postAttributes.title += "(server)";
-      // wait for 5 seconds
-      Meteor._sleepForMs(5000);
-    }else{
-      postAttributes.title += "(client)";
     }
 
     var user = Meteor.user();
