@@ -12,4 +12,6 @@ Router.map(function(){
   //about Router
   this.route('about');
 
+  //profile Router
+  this.route('profile');
 });
