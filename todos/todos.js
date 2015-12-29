@@ -1,6 +1,8 @@
 Todos = new Mongo.Collection('todos'); //create the todos collection as global client/server
 
 if (Meteor.isClient) {
+  //subscribe to the collection todos:
+  Meteor.subscribe('todos');
   //Template helpers:
   Template.main.helpers({
     todos: function(){
@@ -34,6 +36,12 @@ if (Meteor.isClient) {
 
 }
 
+if (Meteor.isServer) {
+  Meteor.publish('todos', function(){    
+    return Todos.find({userId: this.userId});
+  });
+}
+
 //meteor methods
 
 Meteor.methods({
@@ -49,13 +57,17 @@ Meteor.methods({
     });
   },
   deleteTodo: function(todoId){
+    var todo = Todos.findOne(todoId);
+    if(todo.userId !== Meteor.userId()){
+      throw new Meteor.Error('Not Authorized');
+    }
     Todos.remove(todoId);
   },
   setChecked: function(todoId, setChecked){
+    var todo = Todos.findOne(todoId);
+    if(todo.userId !== Meteor.userId()){
+      throw new Meteor.Error('Not Authorized');
+    }
     Todos.update(todoId, {$set:{checked: setChecked}});//check the todos
   }
 });
-
-if (Meteor.isServer) {
-
-}

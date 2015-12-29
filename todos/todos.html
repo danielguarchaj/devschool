@@ -29,7 +29,6 @@
     <input type="text" class="form-control" name="text" placeholder="Type a todo...">
     </div>
   </form>
-  {{/if}}
   <ul>
     {{#each todos}}
       <li class="{{#if checked}}checked{{/if}}">
@@ -43,4 +42,7 @@
       </li>
     {{/each}}
   </ul>
+    {{else}}
+    <h4>Please Login</h4>
+  {{/if}}
 </template>
