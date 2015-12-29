@@ -1,0 +1,1 @@
+{"version":3,"sources":["meteor://💻app/Turns.js"],"names":[],"mappings":";;;;;;;;AAAA,KAAK,GAAG,EAAE,CAAC;;AAEX,KAAK,CAAC,MAAM,GAAG,UAAU,GAAG,EAAE,IAAI,EAAE,EAGnC,qC","file":"/Turns.js","sourcesContent":["Turns = {};\n\nTurns.inHand = function (set, card) {\n  \n\n}\n"]}
