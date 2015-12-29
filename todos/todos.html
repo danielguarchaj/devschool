@@ -1,9 +1,7 @@
-
-  <head>
+ <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>My todos </title>
   </head>
 
@@ -23,11 +21,17 @@
     </div>
   </body>
 <template name="main">
+  <form class="new-todo">
+    <div class="form-group">
+    <input type="text" class="form-control" name="text" placeholder="Type a todo...">
+    </div>
+  </form>
+
   <ul>
     {{#each todos}}
-      <li>
+      <li class="{{#if checked}}checked{{/if}}">
         <button class="delete-todo">&times;</button>
-        <input type="checkbox" class="toggle-check">
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked">
         <span class="text-align">
           {{text}}
         </span>
