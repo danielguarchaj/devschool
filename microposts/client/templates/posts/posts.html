@@ -1,9 +1,10 @@
 <template name="posts">
+  {{#if currentUser}}
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#postModal">
     Say Something!
   </button>
-
+  {{/if}}
   <!-- Modal -->
   <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="myPostModalLabel">
     <div class="modal-dialog" role="document">
@@ -30,7 +31,7 @@
       <img src="img/profile.jpg">
     </div>
     <div class="col-md-11">
-      <small>Posted my Username at Date</small>
+      <small>Posted by Username at Date</small>
       <p>This is the user's post</p>
     </div>
   </div>
@@ -40,7 +41,7 @@
       <img src="img/profile.jpg">
     </div>
     <div class="col-md-11">
-      <small>Posted my Username at Date</small>
+      <small>Posted by Username at Date</small>
       <p>This is the user's post</p>
     </div>
   </div>
@@ -50,7 +51,7 @@
       <img src="img/profile.jpg">
     </div>
     <div class="col-md-11">
-      <small>Posted my Username at Date</small>
+      <small>Posted by Username at Date</small>
       <p>This is the user's post</p>
     </div>
   </div>
@@ -60,7 +61,7 @@
       <img src="img/profile.jpg">
     </div>
     <div class="col-md-11">
-      <small>Posted my Username at Date</small>
+      <small>Posted by Username at Date</small>
       <p>This is the user's post</p>
     </div>
   </div>
@@ -70,7 +71,7 @@
       <img src="img/profile.jpg">
     </div>
     <div class="col-md-11">
-      <small>Posted my Username at Date</small>
+      <small>Posted by Username at Date</small>
       <p>This is the user's post</p>
     </div>
   </div>
