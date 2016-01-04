@@ -17,6 +17,12 @@ ProfileImages.allow({
 
 UserImages = new Mongo.Collection("UserImages");
 
+UserImages.allow({
+    insert: function(userId, doc){
+      return true;
+    }
+});
+
 Posts = new Mongo.Collection("posts");
 
 Posts.attachSchema(new SimpleSchema({

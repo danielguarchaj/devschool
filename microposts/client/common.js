@@ -18,6 +18,6 @@ Meteor.startup(function () {
 });
 
 Template.registerHelper('getProfileImg', function(userId){
-  var imgUrl = UserImages.findOne({userId: userId}).image;
+  var imgUrl = UserImages.findOne({userId: userId}).image || "";
   return imgUrl;
 });
