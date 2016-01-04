@@ -3,5 +3,17 @@
 </body>
 
 <template name="layout">
-  {{> yield}}
+  {{> navbar}}
+  <div class="row faq">
+    <div class="large-12 columns">
+      {{> yield}}
+    </div>
+  </div>
+
+  <script>//inicializar foundation
+    $(document).ready(function(){
+      $(document).foundation();
+    });
+  </script>
+
 </template>
